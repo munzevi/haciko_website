@@ -1,0 +1,115 @@
+<?php
+
+namespace App\DataTables;
+
+use App\Models\User;
+use Yajra\DataTables\Html\Button;
+use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Editor\Editor;
+use Yajra\DataTables\Html\Editor\Fields;
+use Yajra\DataTables\Services\DataTable;
+
+class UsersDataTable extends DataTable
+{
+    protected $actions = ['print', 'excel', 'create'];    
+    /**
+     * Build DataTable class.
+     *
+     * @param mixed $query Results from query() method.
+     * @return \Yajra\DataTables\DataTableAbstract
+     */
+    public function dataTable($query)
+    {
+        return datatables()
+            ->eloquent($query)
+            ->addColumn('permission',function($user){
+                if($user->roles()){
+                    return $user->roles->map(function($role){
+                        return $role->title;
+                    })->implode(', ');
+                }else{
+                    return 'yok';
+                }
+            })
+            ->addColumn('permission',function($user){
+                if($user->permissions()){
+                    return $user->permissions->map(function($permission){
+                        return $permission->title;
+                    })->implode(', ');
+                }else{
+                    return 'yok';
+                }
+            })
+            ->addColumn('aksiyon', function($row){
+                $button = '<a href="javascript:void(0)"  data-id="'.$row->id.'" data-original-title="Düzenle" class="btn btn-primary btn-sm editUser" style="min-width:110px"><i class="nc-icon nc-settings-gear-65" style="color:white;margin-right:5px;font-weight:600;"></i>Düzenle</a>';
+                 $button .= '<a href="javascript:void(0)" data-id="'.$row->id.'" data-original-title="Sil" class="btn btn-danger btn-sm deleteUser" style="min-width:110px"><i class="nc-icon nc-simple-remove" style="color:white;margin-right:5px;font-weight:600;"></i>Sil</a>';
+                return $button;
+            })
+            ->rawColumns(['aksiyon']);
+    }
+
+    /**
+     * Get query source of dataTable.
+     *
+     * @param \App\UserDataTable $model
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function query(User $model)
+    {
+        return $model->newQuery();
+    }
+
+    /**
+     * Optional method if you want to use html builder.
+     *
+     * @return \Yajra\DataTables\Html\Builder
+     */
+    public function html()
+    { // <"wrapper"flipt>
+        return $this->builder()
+                    ->setTableId('userdatatable-table')
+                    ->columns($this->getColumns())
+                    ->minifiedAjax()
+                    ->orderBy(1)
+                    ->parameters([
+                        'language' => [
+                            'url' => url('vendor/datatables/turkish.json'), 
+                        ]
+                    ])
+                    ->buttons(
+                        Button::make('create'),
+                        Button::make('export'),
+                        Button::make('print'),
+                    );
+    }
+
+    /**
+     * Get columns.
+     *
+     * @return array
+     */
+    protected function getColumns()
+    {
+        return [
+            Column::make('id')->width(40),
+            Column::make('name')->title('İsim Soyisim'),
+            Column::make('email')->title('E-Posta'),
+            Column::make('created_at')->title('Kayıt Tarihi'),
+             Column::computed('aksiyon')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(240)
+                  ->addClass('text-center')
+        ];
+    }
+
+    /**
+     * Get filename for export.
+     *
+     * @return string
+     */
+    protected function filename()
+    {
+        return 'Users_' . date('YmdHis');
+    }
+}

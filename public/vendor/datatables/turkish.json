@@ -1,0 +1,23 @@
+{
+    "sProcessing": "İşleniyor...",
+    "sLengthMenu": "Sayfada _MENU_ Kayıt Göster",
+    "sZeroRecords": "Eşleşen Kayıt Bulunmadı",
+    "sInfo": " _TOTAL_ Kayıt bulunuyor, _START_ - _END_ arası gösteriliyor.",
+    "sInfoEmpty": "Kayıt Yok",
+    "sInfoFiltered": "( _MAX_ Kayıt İçerisinden Bulunan)",
+    "sInfoPostFix": "",
+    "sSearch": "Bul:",
+    "sUrl": "",
+    "oPaginate": {
+      "sFirst": "İlk",
+      "sPrevious": "Önceki",
+      "sNext": "Sonraki",
+      "sLast": "Son"
+    },
+    "buttons":{
+      "export":"Dışa Aktar",
+      "print":"Yazdır",
+      "copy":"Kopyala",
+      "create":"Kayıt Ekle"
+    }
+}
