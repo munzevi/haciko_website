@@ -1,12 +1,4 @@
 /*
-@File: haciko Template Styles
-
-* This file contains the styling for the actual template, this
-is the file you need to edit to change the look of the
-template.
-
-This files table contents are outlined below>>>>>
-
 *******************************************
 *******************************************
 
@@ -58,6 +50,9 @@ Default CSS
 =================================================*/
 /* lobster-regular - latin */
 /* lobster-regular - latin-ext_latin_cyrillic */
+:root{
+    --template-orange: #ff6015;
+}
 @font-face {
     font-family: 'Lobster';
     font-style: normal;
@@ -1426,7 +1421,14 @@ Slider CSS
   transition: .5s ease;
   image-size:cover;
 }
-.image-item:hover .image-overlay {
+.image-item{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    transition: .5s;
+}
+.image-item:hover {
+    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
   opacity: 1;
 }
 /*================================================
@@ -1445,45 +1447,51 @@ Top Feature Area CSS
 }
 
 .feature-card {
-  background-color: #ffffff;
-  padding: 20px;
-  padding-bottom:35px;
-  text-align: center;
-  -webkit-box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.07);
-  box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.07);
-  position: relative;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  border-right: 1px solid #ededed;
-  margin-bottom: 30px;
-  border:1px dashed #ff6015;
+    background-color: #ffffff;
+    padding: 30px  20px;
+    text-align: center;
+    -webkit-box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.07);
+    position: relative;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    border-right: 1px solid #ededed;
 }
 
 .feature-card .icon {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  text-align: center;
-  position: relative;
-}
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    text-align: center;
+    position:relative;
+    height:65px;
+    display: flex;
+    justify-content: center;
+ }
 
 .feature-card .icon img {
   display: inline-block;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  position:absolute;
+  margin:0 auto;
 }
-
 .feature-card .icon img:last-child {
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  opacity: 0;
+    -webkit-transition: 0.6s;
+    left:50%;
+    position:absolute;
+    transition: 0.6s;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    opacity: 0;
 }
+.feature-card:hover .icon img:last-child {
+    opacity:1;
+    display:none;
 
+}
 .feature-card h3 {
   font-size: 22px;
   font-family: "Muli", sans-serif;
@@ -1556,7 +1564,8 @@ Top Feature Area CSS
 }
 
 .feature-card:hover .icon img:last-child {
-  opacity: 1;
+    display:block;
+    opacity: 1;
 }
 
 .feature-content span {
@@ -7256,6 +7265,7 @@ Footer Area CSS
 =================================================*/
 .footer-section {
   background-color: #222c51;
+  border-top:2px dashed var(--template-orange);
 }
 
 .footer-section.white-bg {
@@ -7868,4 +7878,41 @@ Go Top CSS
     to {
         transform: scale(.75)
     }
+
+}
+p.span{
+    font-size: 15px;
+    color: #ff6015;
+    margin:0;
+    padding:0;
+}
+.supportCardList{
+    list-style: none;
+}
+.supportCardItem{
+     heigh: 1rem;
+}
+.fame-area-content p{
+    margin-bottom:10px;
+    line-height: 1rem;
+    text-align: center;
+}
+.fame-area-content h3 {
+    text-align:center;
+}
+
+.act-button-center{
+    text-align: center;
+}
+.fame-area-content a {
+
+}
+.fame-area-content strong{
+    color: var(--template-orange);
+}
+.fame-image{
+    background-image:url("/storage/files/shares/Anasayfa%20Slider/3.jpg");
+    background-size: cover;
+    background-position: center;
+    height:960px;
 }

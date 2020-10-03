@@ -3,16 +3,16 @@
 
 namespace App\Helpers;
 use App\Models\Language;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
-
 
 /**
  * Cms Helper functions
  * @package App\Helpers
  */
 class Helpers{
+
     /**
      * get content type from current route
      * @return mixed|string
@@ -30,7 +30,6 @@ class Helpers{
     {
         return Language::where('code', App::getLocale())->first()->id;
     }
-
 
     /**
      * check if has content
@@ -81,7 +80,7 @@ class Helpers{
         }else{
             return [];
         }
-    }  
+    }
     public static function feature_subtitle($collection){
         if(isset($collection->extra_fields)){
             $fields = collect($collection->extra_fields);
@@ -91,8 +90,7 @@ class Helpers{
         }else{
             return [];
         }
-    }    
-    public static function breadcrumbs($content){
-        return $content->parent->parent->slug.'/'.$content->parent->slug.'/'.$content->slug;
     }
+
+
 }

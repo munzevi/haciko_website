@@ -18,6 +18,7 @@ class ContentsController extends Controller
      * @throws \Exception
      */
     public function index(Request $request){
+
         $content = Helpers::findContentOrFail();
         if ($request->ajax()) {
             $data = Content::with(['parent', 'author','tags'])
@@ -100,11 +101,12 @@ class ContentsController extends Controller
      * @param $id
      */
     public function show($id,ContentRequest $request){
-        
+
+
         $content = Content::findOrFail($id);
         $content->update($request->validated());
         if($request->filled('tags')) $content->tags()->sync($request->tags);
-        
+
 
         return view('backend.pages.contents')->with(['type' => $content->type ])->with('success','işlem başarılı');
     }
@@ -160,7 +162,7 @@ class ContentsController extends Controller
        // }
 
        // return redirect()->route('admin.pages.index')->with('success', 'Sayfa Başarıyla güncellendi ');
-   } 
+   }
 }
 
 

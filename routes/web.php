@@ -12,8 +12,6 @@
 */
 use Illuminate\Support\Str;
 
-Route::get('/', 'CMS\FrontendController@index')->name('homepage');
-
 Route::prefix('admin')->name('admin.')->middleware(['auth','web'])->group(function () {
 	Route::get('home', 'CMS\HomeController@index')->name('home');
     Route::get('/filemanager','CMS\FilemanagerController@files')->name('filemanager');
@@ -38,4 +36,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth','web'])->group(functi
         });
     });
 });
+
 Auth::routes(['register' => false]);
+
+Route::get('/', 'CMS\FrontendController@index')->name('homepage');
+Route::get('{page}', 'CMS\FrontendController@index');
+Route::get('{page}/{child}', 'CMS\FrontendController@index');
+Route::get('{page}/{child}/{grandChild}', 'CMS\FrontendController@index');
+
+

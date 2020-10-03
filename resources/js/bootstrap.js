@@ -1,6 +1,6 @@
-window._ = require('lodash');
-require('datatables.net-bs4');
-require('datatables.net-buttons-bs4');
+// require('datatables.net-bs4');
+// require('datatables.net-buttons-bs4');
+
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -12,7 +12,15 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
-} catch (e) {}
+    // require('../../public/assets/js/jquery.meanmenu.js')
+    // require('../../public/assets/js/jquery.easing.min.js')
+    // require('../../public/assets/js/owl.carousel.js')
+    // require('../../public/assets/js/jquery.magnific-popup.min.js')
+    // require('../../public/assets/js/main.js')
+    // require('../../public/assets/js/svg-turkiye-haritasi.js')
+
+} catch (e) { }
+
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -20,9 +28,8 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
-
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+// window.axios = require('axios');
+// window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

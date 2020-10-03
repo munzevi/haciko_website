@@ -1,4 +1,4 @@
-   
+
 <div class="modal fade" id="ajaxModel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -14,7 +14,7 @@
                             <div class="col-sm-12">
                                 <select class="form-control" id="segment" name="segment"  required="">
                                     @foreach(config('cms.setting_segments') as $key => $segment)
-                                  <option value="{{$segment}}">{{$segment}}</option>
+                                  <option value="{{$key}}">{{$segment}}</option>
                                 @endforeach
                                 </select>
                             </div>
@@ -36,7 +36,7 @@
                         <label for="language_id" class="col-sm-12 control-label">{{__('datatables.pages.settings.lang') }}</label>
                         <div class="col-sm-12">
                             <select name="language_id" class="form-control" id="lang">
-                                
+
                             </select>
                         </div>
                     </div>

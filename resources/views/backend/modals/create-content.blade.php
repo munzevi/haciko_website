@@ -9,7 +9,7 @@
         @if(isset($content))
         <input type="hidden" name="id" value="{{$content->id}}">
         @endif
-        
+
         <div class="form-row" style="margin-bottom: 0;">
             <div class="col-sm-6" style="padding-right: 0">
                 <label for="title" class="col-sm-12 control-label">{!! __('datatables.pages.'.$type.'.form.name') !!}</label>
@@ -158,7 +158,10 @@
                     <input type="checkbox" class="custom-control-input" id="show_on_menu" name="show_on_menu" @if(isset($content->show_on_menu) && $content->show_on_menu === 1)  value="true" checked  @endif >
                     <label class="custom-control-label" for="show_on_menu"> {{__('datatables.pages.'.$type.'.form.show_on_menu')}}</label>
                 </div>
-
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="show_on_footer" name="show_on_footer" @if(isset($content->show_on_footer) && $content->show_on_footer === 1)  value="true" checked  @endif >
+                    <label class="custom-control-label" for="show_on_footer"> {{__('datatables.pages.'.$type.'.form.show_on_footer')}}</label>
+                </div>
             </div>
 
             <div class="col-md-12 add-extra mt-3" style="text-align: center; margin-left: 0.7rem;">

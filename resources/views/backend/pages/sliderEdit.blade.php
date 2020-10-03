@@ -74,7 +74,7 @@
                         </div>
                         <div class="form-row">
                             <div class="col-md-6" id="title-column-{{$key}}">
-                            @foreach($slider->title[$key] as $k=>$v)
+                            @foreach($slider->title as $k=>$v)
                                     <span id="title-{{$k}}">
                                     <label for="title" class="label-control mt-2" style="width: 100%;">{{__('datatables.modals.sliders.title') }}
                                     <span data-id="{{$k}}" class="addTitle" id="addTitle">
@@ -84,13 +84,13 @@
                                             <small class="text-danger">{{__('datatables.modals.sliders.remove-title') }}</small>
                                         @endif                                    </span>
                                     </label>
-                                <input type="text" class="form-control" name="title[{{$key}}][]" id="title-{{$k}}" value="{{$v}}">
+                                <input type="text" class="form-control" name="title[{{$key}}]" id="title-{{$key}}" value="{{$v}}">
                             </span>
                                 @endforeach
 
                             </div>
                             <div class="col-md-6" id="subtitle-column-{{$key}}">
-                                @foreach($slider->subtitle[$key] as $k=>$v)
+                                @foreach($slider->subtitleas $k=>$v)
                                     <span id="subtitle-column-1">
                                     <label for="subtitle" class="label-control  mt-2" style="width: 100%;">{{__('datatables.modals.sliders.subtitle') }}
                                         <span data-id="1" class="addSubtitle" id="addSubtitle">
@@ -101,7 +101,7 @@
                                             @endif
                                     </span>
                                     </label>
-                                    <input type="text" class="form-control" name="subtitle[{{$key}}][]" id="subtitle-{{$k}}" value="{{ $v }}">
+                                    <input type="text" class="form-control" name="subtitle[{{$key}}]" id="subtitle-{{$key}}" value="{{ $v }}">
                                 </span>
                                 @endforeach
 
@@ -144,16 +144,16 @@
                                       <i class="fa fa-picture-o"></i> Choose
                                     </a>
                                     </span>
-                                    <input id="thumbnail-1" class="form-control" type="text" name="path[1]" >
+                                    <input id="thumbnail-1" class="form-control" type="text" name="path[0]" >
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <label for="meta-alt" class="label-control">{{__('datatables.modals.sliders.meta-alt') }}</label>
-                                <input type="text" class="form-control" name="meta-alt[1]" value="" id="meta-alt-1">
+                                <input type="text" class="form-control" name="metaAlt[]" value="" id="meta-alt-1">
                             </div>
                             <div class="col-md-3">
                                 <label for="meta-title" class="label-control">{{__('datatables.modals.sliders.meta-title') }}</label>
-                                <input type="text" class="form-control" name="meta-title[1]" value=""  id="meta-title-1">
+                                <input type="text" class="form-control" name="metaTitle[]" value=""  id="meta-title-1">
                             </div>
                         </div>
                         <div class="form-row">
@@ -164,7 +164,7 @@
                                         <small class="text-success">{{__('datatables.modals.sliders.add-title') }}</small>
                                     </span>
                                     </label>
-                                <input type="text" class="form-control" name="title[1][]" id="title-1" value="">
+                                <input type="text" class="form-control" name="title[]" id="title-1" value="">
                             </span>
                             </div>
                             <div class="col-md-6" id="subtitle-column-1">
@@ -174,7 +174,7 @@
                                         <small class="text-success">{{__('datatables.modals.sliders.add-subtitle') }}</small>
                                     </span>
                                     </label>
-                                    <input type="text" class="form-control" name="subtitle[1][]" id="subtitle-1" >
+                                    <input type="text" class="form-control" name="subtitle[]" id="subtitle-1" >
                                 </span>
                             </div>
                         </div>

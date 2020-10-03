@@ -54,6 +54,7 @@ class ContentRequest extends FormRequest
                 'seo_keywords' => 'nullable',
                 'layout' => 'nullable',
                 'show_on_menu' => 'nullable',
+                'show_on_footer' => 'nullable',
                 'show_at_parent' => 'nullable',
                 'status' => 'nullable',
                 'parent_id' => 'nullable',

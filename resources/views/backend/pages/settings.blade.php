@@ -41,7 +41,7 @@
     <select id="dropdown1" class="form-control form-control-sm filter-segment">
       <option value="">Tüm Segmentler</option>
     @foreach(config('cms.setting_segments') as $key => $segment)
-      <option value="{{$segment}}">{{$segment}}</option>
+      <option value="{{$key}}">{{$segment}}</option>
     @endforeach
     </select>
   </div>

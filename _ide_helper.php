@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 6.18.7 on 2020-05-01 08:55:46.
+ * Generated for Laravel 6.18.7 on 2020-10-02 06:14:37.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -17257,6 +17257,98 @@ namespace Maatwebsite\Excel\Facades {
  
 }
 
+namespace Spatie\ResponseCache\Facades { 
+
+    /**
+     * 
+     *
+     */ 
+    class ResponseCache {
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function enabled($request)
+        {
+                        /** @var \Spatie\ResponseCache\ResponseCache $instance */
+                        return $instance->enabled($request);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function shouldCache($request, $response)
+        {
+                        /** @var \Spatie\ResponseCache\ResponseCache $instance */
+                        return $instance->shouldCache($request, $response);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function cacheResponse($request, $response, $lifetimeInSeconds = null, $tags = [])
+        {
+                        /** @var \Spatie\ResponseCache\ResponseCache $instance */
+                        return $instance->cacheResponse($request, $response, $lifetimeInSeconds, $tags);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function hasBeenCached($request, $tags = [])
+        {
+                        /** @var \Spatie\ResponseCache\ResponseCache $instance */
+                        return $instance->hasBeenCached($request, $tags);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getCachedResponseFor($request, $tags = [])
+        {
+                        /** @var \Spatie\ResponseCache\ResponseCache $instance */
+                        return $instance->getCachedResponseFor($request, $tags);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function clear($tags = [])
+        {
+                        /** @var \Spatie\ResponseCache\ResponseCache $instance */
+                        return $instance->clear($tags);
+        }
+        
+        /**
+         * 
+         *
+         * @param string|array $uris
+         * @param string[] $tags
+         * @return \Spatie\ResponseCache\ResponseCache 
+         * @static 
+         */ 
+        public static function forget($uris, $tags = [])
+        {
+                        /** @var \Spatie\ResponseCache\ResponseCache $instance */
+                        return $instance->forget($uris, $tags);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -20162,6 +20254,8 @@ namespace  {
     class Html extends \Collective\Html\HtmlFacade {}
 
     class Excel extends \Maatwebsite\Excel\Facades\Excel {}
+
+    class ResponseCache extends \Spatie\ResponseCache\Facades\ResponseCache {}
  
 }
 

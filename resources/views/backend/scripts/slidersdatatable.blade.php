@@ -3,9 +3,9 @@
 </script>
 <script>
     $(function () {
-        let titleIndex =2;
-        let subtitleIndex =2;
-        let imageIndex = 1;
+        let titleIndex =0;
+        let subtitleIndex =0;
+        let imageIndex = 0;
         $('body').on('click','#addTitle',function(e){
             e.preventDefault();
             var target = $(this).data('id')
@@ -33,8 +33,9 @@
             titleIndex++;
             subtitleIndex++;
             imageIndex++;
-            $("#slider-1").append("                    <span id=\"slider-"+imageIndex+"\" >\n" +
-                "    <div class=\"col-md-12\" style=\"display:flex;justify-content:flex-end;padding:0;margin:0;margin-top:15px;\" ><button class=\"btn btn-sm btn-danger\" id=\"remove-image\" data-id=\""+imageIndex+"\" ><i class=\"nc-icon nc-simple-remove\"></i>İmajı Sil</button></div>\n" +                "                        <div class=\"form-row\">\n" +
+            $("#slider-1").append("<span id=\"slider-"+imageIndex+"\" >\n" +
+                "    <div class=\"col-md-12\" style=\"display:flex;justify-content:flex-end;padding:0;margin:0;margin-top:15px;\" ><button class=\"btn btn-sm btn-danger\" id=\"remove-image\" data-id=\""+imageIndex+"\" ><i class=\"nc-icon nc-simple-remove\"></i>İmajı Sil</button></div>\n" +
+                "           <div class=\"form-row\">\n" +
                 "                            <div class=\"col-md-6\">\n" +
                 "                                <label for=\"path\" class=\"label-control\">{{__('datatables.modals.sliders.image') }}</label>\n" +
                 "                                <div class=\"input-group\">\n" +
@@ -63,7 +64,7 @@
                 "                                    <small class=\"text-danger\">{{__('datatables.modals.sliders.add-title') }}</small>\n" +
                 "                                </span>\n" +
                 "                                </label>\n" +
-                "                                <input type=\"text\" class=\"form-control\" name=\"title["+imageIndex+"][]\" id=\"title"+titleIndex+"\">\n" +
+                "                                <input type=\"text\" class=\"form-control\" name=\"title["+imageIndex+"]\" id=\"title"+titleIndex+"\">\n" +
                 "                            </span>\n" +
                 "\n" +
                 "                            </div>\n" +
@@ -74,7 +75,7 @@
                 "                                    <small class=\"text-danger\">{{__('datatables.modals.sliders.add-subtitle') }}</small>\n" +
                 "                                </span>\n" +
                 "                                </label>\n" +
-                "                                <input type=\"text\" class=\"form-control\" name=\"subtitle["+imageIndex+"][]\" id=\"subtitle"+subtitleIndex+"\">\n" +
+                "                                <input type=\"text\" class=\"form-control\" name=\"subtitle["+imageIndex+"]\" id=\"subtitle"+subtitleIndex+"\">\n" +
                 "                                </span>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +

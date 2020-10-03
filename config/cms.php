@@ -5,10 +5,10 @@ return [
      * setting types
      */
 	'setting_segments' => [
-		'GN' =>'Genel Ayarlar',
-        'SE' => 'Sosyal Medya Hesapları',
-        'MT' => 'Meta Tagler',
-        'MS' => 'Mail Ayarları',
+		'genel' =>'Genel Ayarlar',
+        'seo' => 'Sosyal Medya Hesapları',
+        'meta' => 'Meta Tagler',
+        'mail' => 'Mail Ayarları',
 	],
 
     /**

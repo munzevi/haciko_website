@@ -44,24 +44,25 @@ class SliderController extends Controller
         return view('backend.pages.sliders',compact('pages'));
     }
 
-
     public function create(){
         $pages = Content::where('type','pages')->get();
         return view('backend.pages.sliderEdit',compact('pages'));
     }
-    public function store(Request $request)
+
+    public function store(SliderRequest $request)
     {
-//        dd($request->all());
-        $s = Slider::create($request->all());
-        $s->contents()->attach($request->name);
+        $s = Slider::create($request->validated());
+        // $s->contents()->attach($request->name);
         return redirect()->route('admin.sliders.index')->with('success','slider oluşturuldu');
     }
     public function show($id,SliderRequest $request)
-    { 
-        Slider::find($id)->update($request->validated());
+    {
+        // $slider = Slider::find($id)->update($request->validated());
+        $slider = Slider::find($id);
 
-        return redirect()->route('admin.sliders.index')->with('success','slider oluşturuldu');
+        return redirect()->back()->with($slider);
     }
+
     public function edit($id){
         $slider = Slider::with('content')->find($id);
         $pages = Content::where('type','pages')->get();
@@ -78,4 +79,3 @@ class SliderController extends Controller
         dd('upload');
     }
 }
-//'.route("admin.sliders.edit",$row->id).'

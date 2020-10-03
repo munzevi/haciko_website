@@ -30,6 +30,7 @@ class Content extends Model
         'layout',
         'show_at_parent',
         'show_on_menu',
+        'show_at_footer',
         'status',
         'parent_id',
         'author_id',
@@ -55,6 +56,7 @@ class Content extends Model
         'seo_description' => 'string',
         'layout' => 'string',
         'show_at_menu' => 'boolean',
+        'show_at_footer' => 'boolean',
         'status' => 'boolean',
         'parent_id' => 'integer',
         'author_id' => 'integer',
@@ -84,8 +86,10 @@ class Content extends Model
      * [grandChild description]
      * @return [type] [description]
      */
-    public function grandChild(){
-        return $this->child()->with('child')->get();
+    public function getGrandChildAttribute(){
+        return collect($this->child)->filter(function($item){
+            return !is_null($item->child);
+        });
     }
 
 
@@ -124,5 +128,22 @@ class Content extends Model
     public function parents()
     {
         return $this->where('parent_id',null)->get();
+    }
+
+    public static function exists($page)
+    {
+        return Content::where('slug',$page)->exists();
+    }
+
+    public function getUrlAttribute()
+    {
+        if(isset($this->parent->parent)){
+            $url = "/".$this->parent->parent->slug."/".$this->parent->slug."/".$this->slug;
+        } elseif(isset($this->parent)){
+            $url =  "/".$this->parent->slug."/".$this->slug;
+        } else {
+            $url = "";
+        }
+        return $url;
     }
 }

@@ -1,3 +1,4 @@
+/**
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -7,9 +8,23 @@
 // Bootstrap
 //@import '~bootstrap/scss/bootstrap';
 
+backend
 @import "~bootswatch/dist/simplex/variables";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/simplex/bootswatch";
 
 @import "~datatables.net-bs4/css/dataTables.bootstrap4.css";
 @import "~datatables.net-buttons-bs4/css/buttons.bootstrap4.css";
+*/
+
+/**  frontend
+@import "../../public/assets/css/settings.css";
+@import "../../public/assets/css/bootstrap.min.css";
+@import "../../public/assets/css/owl.theme.default.min.css";
+@import "../../public/assets/css/owl.carousel.min.css";
+@import "../../public/assets/css/boxicons.min.css";
+@import "../../public/assets/css/flaticon.css";
+@import "../../public/assets/css/meanmenu.css";
+@import "../../public/assets/css/style.css";
+@import "../../public/assets/css/responsive.css";
+ **/
