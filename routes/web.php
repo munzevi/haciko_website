@@ -39,6 +39,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth','web'])->group(functi
 
 Auth::routes(['register' => false]);
 
+// Route::get('/{page}/{child}',function(\Illuminate\Http\Request $request){
+//     print($request->path());
+// });
 Route::get('/', 'CMS\FrontendController@index')->name('homepage');
 Route::get('{page}', 'CMS\FrontendController@index');
 Route::get('{page}/{child}', 'CMS\FrontendController@index');

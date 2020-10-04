@@ -63,6 +63,7 @@ class Content extends Model
         'language_id' => 'integer',
         'extra_fields' => 'array',
         'type' => 'string',
+        'url' => 'boolean',
     ];
 
     /**
@@ -130,20 +131,18 @@ class Content extends Model
         return $this->where('parent_id',null)->get();
     }
 
-    public static function exists($page)
-    {
-        return Content::where('slug',$page)->exists();
-    }
-
     public function getUrlAttribute()
     {
-        if(isset($this->parent->parent)){
+        if($this->slug === "online-bagis"){
+            $url = "https://fonzip.com/haciko/bagis?recurring=true";
+        }elseif(isset($this->parent->parent)){
             $url = "/".$this->parent->parent->slug."/".$this->parent->slug."/".$this->slug;
         } elseif(isset($this->parent)){
             $url =  "/".$this->parent->slug."/".$this->slug;
         } else {
-            $url = "";
+            $url = "/";
         }
         return $url;
     }
+
 }

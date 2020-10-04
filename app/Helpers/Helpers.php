@@ -2,6 +2,7 @@
 
 
 namespace App\Helpers;
+use App\Models\Content;
 use App\Models\Language;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
@@ -91,6 +92,25 @@ class Helpers{
             return [];
         }
     }
+
+    public static function isActive($request, $content){
+        $urls = [];
+        if($content->hasChild()){
+            foreach($content->child as $key => $value){
+                if($value->child){
+                    foreach($value->child as $g){
+                        array_push($urls,$value->url);
+                        array_push($urls,$g->url);
+                    }
+                } else {
+                    array_push($urls,$value->url);
+                }
+            }
+        }
+
+        return in_array($request,$urls) || $request === "" ? true: false;
+    }
+
 
 
 }

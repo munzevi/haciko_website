@@ -85,32 +85,38 @@
             @foreach($contents->where('show_on_menu',true)->where('parent_id',null)->where('status',true)->get() as $index => $parent)
             <ul class="navbar-nav ">
                 <li class="nav-item">
-                    <a href="#" class="nav-link ">
+                    @if($parent->slug === "anasayfa" )
+                        <a href="/" class="nav-link @if(\Request::is("/")) active @endif ">
+                    @else
+                        <a href="#" class="nav-link  @if(\Request::is($parent->slug."*")) active @endif">
+                    @endif
                         <span>0{{$index+1}}</span>
-                        {{$parent->name}}
-                        @if($parent->child->count() >1 )
+                    {{$parent->name}}
+                    @if($parent->child->count() >1 )
                         <i class="bx bx-chevron-down"></i>
-                        @endif
+                    @endif
                     </a>
                     @if($parent->child->count() >1 )
                     <ul class="dropdown-menu">
                         @foreach($parent->child as $key => $children)
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            {{$children->name}}
                             @if($children->child->count() >1 )
-                                <i class="bx bx-chevron-down"></i>
-                            </a>
+                                <a href="#" class="nav-link @if(\Request::is(substr($children->url,1))) active @endif" id="child">
+                                {{$children->name}}
+                                    <i class="bx bx-chevron-down"></i>
+                                </a>
                                 <ul class="dropdown-menu">
                                     @foreach($children->child as $grandChild)
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
+                                            <a href="{{$grandChild->url}}" class="nav-link @if(\Request::is(substr($grandChild->url,1))) active @endif">
                                                 {{$grandChild->name}}
                                             </a>
                                         </li>
                                     @endforeach
                                 </ul>
                             @else
+                            <a href="{{$children->url}}" class="nav-link @if(\Request::is(substr($children->url,1))) active @endif">
+                                {{$children->name}}
                             </a>
                         </li>
                             @endif

@@ -73,6 +73,7 @@ body {
   margin: 0;
   font-family: "Muli", sans-serif;
   font-size: 16px;
+  background-color: #f8f9fa;
 }
 
 a {
@@ -5179,11 +5180,9 @@ Page Title Area CSS
 .page-title-area {
   position: relative;
   z-index: 1;
-  background-image: url(../images/page-title-bg.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   height: 500px;
 }
 
@@ -7336,7 +7335,8 @@ Footer Area CSS
 }
 
 .single-footer-widget {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+  list-style: none;
 }
 
 .single-footer-widget h3 {
@@ -7915,4 +7915,32 @@ p.span{
     background-size: cover;
     background-position: center;
     height:960px;
+}
+.info-contact, .info-contact a {
+    font-size: 14px;
+    color: #d0ccee;
+    font-weight: 400;
+}
+.account-number{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    text-decoration: none;
+}
+.account-number a {
+    text-decoration: none;
+}
+.info-box{
+    padding: 30px;
+    background-color: #302c51;
+    max-height:400px;
+}
+.info-box h3{
+    color:var(--template-orange);
+}
+.info-box p {
+    font-size: 14px;
+    color: #d0ccee;
+    font-weight: 400;
 }

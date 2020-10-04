@@ -93,24 +93,6 @@ class FrontendServices {
         return $list;
     }
 
-    // get menu link contents
-    public function navLinks()
-    {
-        return Content::where('show_on_menu',true)
-                ->whereNull('parent_id')
-                ->where('status',true)
-                ->get();
-    }
-    public function footerLinks_howToSupport()
-    {
-        return Content::find(8)->child;
-        // return Content::where('status',1)->where('show_on_footer', true)->where('');
-    }
-    public function footerLinks_whatWeDo()
-    {
-        return Content::find(28)->child->take(7);
-    }
-
     // get meta tags from settings
     public function setting($type)
     {
@@ -126,5 +108,15 @@ class FrontendServices {
                 ->orWhere('segment','meta')
                 ->orWhere('segment','seo');
 
+    }
+
+    public function pageLinks()
+    {
+        foreach(Content::where('type','pages')->where('status',true)->whereNotNull('parent_id')->get() as $key => $page){
+            if(count($page->child) < 1){
+                $pageLinks[] = [$page->name => $page->url];
+            }
+        }
+        return $pageLinks;
     }
 }

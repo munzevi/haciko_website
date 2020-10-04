@@ -8,43 +8,21 @@
                     <div class="footer-info-contact">
                         <i class="flaticon-pin"></i>
                         <h3>{{__('frontend.address')}}</h3>
-                        <span>
-                            {!!
-                            collect($settings['genel'])
-                                ->where('key','adres')
-                                ->first()['value']
-                            !!}
-                        </span>
+                        <span>{!!$genelAyarlar->where('key','adres')->first()->value!!}</span>
                     </div>
 
                     <div class="footer-info-contact">
                         <i class="flaticon-call"></i>
                         <h3>{{__('frontend.phone')}}</h3>
-                        <span><a href="tel:{{
-                            $settings['genel']
-                                ->where('key','Telefon')
-                                ->first()['value']
-                            }}">{{
-                            $settings['genel']
-                                ->where('key','Telefon')
-                                ->first()['value']
-                            }}</a></span>
+                        <span><a callto="{{str_replace(' ','',$genelAyarlar->where('key','Telefon')->first()->value)}}">{{$genelAyarlar->where('key','Telefon')->first()->value}}</a></span>
                     </div>
 
                     <div class="footer-info-contact">
                         <i class="flaticon-email"></i>
-                        <h3>{{__('frontend.email')}}</h3>
+                        <h3>{{__('frontend.phone')}}</h3>
                         <span>
-                            <a href="{{
-                            $settings['genel']
-                                ->where('key','ePosta')
-                                ->first()['value']
-                            }}">
-                                {{
-                            $settings['genel']
-                                ->where('key','ePosta')
-                                ->first()['value']
-                            }}
+                        <a mailto="{{$genelAyarlar->where('key','ePosta')->first()->value}}">
+                            {{$genelAyarlar->where('key','ePosta')->first()->value}}
                             </a>
                         </span>
                     </div>
@@ -55,37 +33,13 @@
                 <div class="single-footer-widget">
                     <h3>{{__('frontend.support')}}</h3>
                     <ul class="footer-quick-links">
+                       @foreach($nasilDesteklerim->get() as $key => $value)
                         <li>
-                            <a href="#">
-                               Haçiko Ailesine Katılın
+                            <a href="{{$value->url}}">
+                                {{$value->name}}
                             </a>
                         </li>
-                         <li>
-                            <a href="#">
-                                Online Bağış
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Havale/Eft Bağış
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Mama Bağışları
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Kurumsal Bağışlar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Özel Gün Kartları
-                            </a>
-                        </li>
-
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -95,62 +49,34 @@
                     <h3>{{__('frontend.activities')}}</h3>
 
                     <ul class="footer-quick-links">
+                        @foreach($nelerYapiyoruz->get() as $key => $value)
                         <li>
-                            <a href="#">
-                                Haçiko Çocukları
+                            <a href="{{$value->url}}">
+                                {{$value->name}}
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                Farkındalık
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Etkinliklerimiz
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Besleme
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Tedavi
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Kulübe
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Eğitim
-                            </a>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                    <h3>{{__('frontend.news')}}</h3>
+                    <h3>Güncel</h3>
 
                     <div class="footer-news">
                        <a href="single-blog.html">
-                            <img src="{{asset('assets/images/IMG_1433.jpg')}}" alt="image">
+                            <img src="http://localhost:8000/assets/images/IMG_1433.jpg" alt="image">
                             <h4>Lorem ipsum dolor sit amet.</h4>
-                            <span>{{\Carbon\Carbon::parse('2020/09/10')->format('d/m/Y')}}</span>
+                            <span>10/09/2020</span>
                        </a>
                     </div>
 
                     <div class="footer-news">
                        <a href="single-blog.html">
-                        <img src="{{asset('assets/images/IMG_1433.jpg')}}" alt="image">
+                        <img src="http://localhost:8000/assets/images/IMG_1433.jpg" alt="image">
                         <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-                            <span>{{\Carbon\Carbon::parse('2020/08/10')->format('d/m/Y')}}</span>
+                            <span>10/08/2020</span>
                        </a>
                     </div>
                 </div>
@@ -161,19 +87,19 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="copyright-logo">
-                    <img src="assets/images/202x69_Logo_Yatay-beyaz.png" alt="image">
+                    <img src="/assets/images/202x69_Logo_Yatay-beyaz.png" alt="image">
                 </div>
             </div>
             <div class="col-md-8">
                 <ul class="terms">
                     <li>
-                        <a href="terms-condition.html">{{__('frontend.privacy')}}</a>
+                        <a href="terms-condition.html">Gizlilik İlkeleri ve Güvenlik Politikası</a>
                     </li>
                     <li>
-                        <a href="privacy-policy.html">{{__('frontend.personalData')}}</a>
+                        <a href="privacy-policy.html">Kişisel Verilerin Korunması</a>
                     </li>
                     <li>
-                        <a href="privacy-policy.html">{{__('frontend.contact')}}</a>
+                        <a href="privacy-policy.html">İletişim</a>
                     </li>
                 </ul>
             </div>
@@ -186,7 +112,7 @@
                     <div class="col-md-6">
                         <p>
                             <span class="copyright">
-                                {{__('frontend.copyright')}}
+                                Her haklı kamu yararınadır
                                 <script>
                                   document.write(new Date().getFullYear())
                                 </script>
@@ -198,10 +124,9 @@
                         <p>
                             <span class="copyright-right">
                                 <script>
-                                </script> coded with
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill heart" fill="red"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </script> coded with <i class="fa fa-heart heart" aria-hidden="true"></i>
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill heart" fill="red" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
                                     </svg>
                                     by
                                 <a href="https://munzevi.net">munzevi</a>
