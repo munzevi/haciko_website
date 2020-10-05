@@ -19,7 +19,7 @@ return [
     //'middlewares' => ['web', 'auth'],
 
     // The url to this package. Change it if necessary.
-    //'url_prefix' => '/admin/filemanager',
+    'url_prefix' => '/admin/filemanager',
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
         'file'  => [
             'folder_name'  => 'files',
             'startup_view' => 'grid',
-            'max_size'     => 50000, // size in KB
+            'max_size'     => 500000, // size in KB
             'valid_mime'   => [
                 'image/jpeg',
                 'image/pjpeg',
