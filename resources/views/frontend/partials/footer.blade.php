@@ -93,13 +93,13 @@
             <div class="col-md-8">
                 <ul class="terms">
                     <li>
-                        <a href="terms-condition.html">Gizlilik İlkeleri ve Güvenlik Politikası</a>
+                        <a href="gizlilik">Gizlilik İlkeleri ve Güvenlik Politikası</a>
                     </li>
                     <li>
-                        <a href="privacy-policy.html">Kişisel Verilerin Korunması</a>
+                        <a href="/storage/files/shares/site_resimler/farkindalik/KVKK.pdf">Kişisel Verilerin Korunması</a>
                     </li>
                     <li>
-                        <a href="privacy-policy.html">İletişim</a>
+                        <a href="/hakkimizda/iletisim/">İletişim</a>
                     </li>
                 </ul>
             </div>

@@ -7942,3 +7942,10 @@ p.span{
     color: #d0ccee;
     font-weight: 400;
 }
+.newsletter-input{
+    background-color: #f5f5f5;
+    border: none;
+    height: 57px !important;
+    color: #2f2c52;
+    border: 1px solid #ffffff;
+}

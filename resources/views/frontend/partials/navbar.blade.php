@@ -18,7 +18,7 @@
         <div class="container">
             <nav class="topbar w-100 bg-white navbar-fixed">
                 <div class="row">
-                    <div class="col-md-6">
+                    {{--<div class="col-md-6">
                         <div class="others-options">
                             <div class="dropdown language-switcher d-inline-block">
                                 <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -40,24 +40,25 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
+                    <div class="col-md-6"></div>
                     <div class="col-md-6">
                         <div class="top-header-social" >
                             <span>Bizi Takip Edin:</span>
-                            <a href="#" target="_blank">
+                            <a href="https://www.facebook.com/hacikodernek" target="_blank">
                                 <i class="flaticon-facebook"></i>
                             </a>
 
-                            <a href="#" target="_blank">
+                            <a href="https://twitter.com/hacikodernek" target="_blank">
                                 <i class="flaticon-twitter"></i>
                             </a>
 
-                            <a href="#" target="_blank">
+                            <a href="https://www.instagram.com/hacikodernegi/" target="_blank">
                                 <i class="flaticon-instagram"></i>
                             </a>
 
-                            <a href="#" target="_blank">
-                                <i class="flaticon-linkedin"></i>
+                            <a href="https://www.youtube.com/channel/UC-dVz4gHaQNGshgrE7ON5dQ" target="_blank">
+                                <img src="/assets/images/icon/youtube.svg" style="height: 20px;padding-bottom: 2px;margin-left: 8px;">
                             </a>
                         </div>
                     </div>

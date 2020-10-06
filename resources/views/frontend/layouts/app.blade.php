@@ -53,6 +53,17 @@
         </i>
     </div>
     <!-- End Go Top Section -->
+    <script>
+        window.onload = function(){
+            if(window.location.href.endsWith('farkindalik')){
+                let width = document.getElementById('iframe').clientWidth -30;
+                let height = document.getElementById('iframe').clientHeight
+                document.querySelector("#iframe > iframe").setAttribute('width',width)
+                document.querySelector("#iframe > iframe").setAttribute('height',height)
+            }
+        }
+
+    </script>
     <script src="{{asset('assets/js/svg-turkiye-haritasi.js')}}"></script>
     <script>
       svgturkiyeharitasi();
